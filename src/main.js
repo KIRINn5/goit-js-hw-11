@@ -19,14 +19,21 @@ form.addEventListener('submit', (event) => {
     fetchImages(query);
     input.value = '';
 });
-    // webpack.config.js
-    module.exports = {
-     module: {
-      rules: [
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-          },
-      ],
-      },
-    };
+    const path = require('path');
+
+module.exports = {
+    entry: './src/main.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
+    },
+};
+
